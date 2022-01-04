@@ -1,5 +1,5 @@
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ page session="false" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <html>
 <head>
 	<title>Home</title>
@@ -8,7 +8,7 @@
 <h1>
 	Hello world!  
 </h1>
-오늘은 깃허브배우고 있습니다...
+오늘은 깃허브에 고통받고 있습니다...
 
 </body>
 </html>
