@@ -40,6 +40,6 @@ public class HomeController {
 	public String loginForm() {
 		System.out.println("welcome loginForm");
 		
-		return "/login/loginForm";
+		return "/login/loginForm2";
 	}
 }

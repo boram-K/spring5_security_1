@@ -43,7 +43,7 @@ public class SecurityController {
 	@GetMapping("/admin")
 	public void admin() { //void로 적어줘도 경로명을 읽어 준다 security/admin 해줌
 		System.out.println("login admin");
-		
+		log.info("");
 	}
 	
 	@GetMapping("/accessError")
