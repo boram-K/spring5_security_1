@@ -34,15 +34,18 @@ http://www.springframework.org/schema/beans http://www.springframework.org/schem
 
 	<beans:bean id="bcryptPasswordEncoder"
 		class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder" />
-
+	
+	<!-- 유저 dao를 생성해서 뿌려줌 -->
 	<beans:bean id="userDetailsService"
 		class="org.springframework.security.core.userdetails.jdbc.JdbcDaoImpl">
 		<beans:property name="dataSource" ref="dataSource" />
 	</beans:bean>
+	
 	<beans:bean id="customNoOpPasswordEncoder"
-		class="edu.bit.ex.security.CustomNoOpPasswordEncoder" />
+		class="edu.kosmo.ex.security.CustomNoOpPasswordEncoder" />
+		
 	<beans:bean id="customUserDetailsService"
-		class="edu.bit.ex.security.CustomUserDetailsService" />
+		class="edu.kosmo.ex.security.CustomUserDetailsService" />
 		
 		
 
@@ -50,12 +53,8 @@ http://www.springframework.org/schema/beans http://www.springframework.org/schem
 	<!-- provider -->
 	<authentication-manager>
 		<authentication-provider
-			user-service-ref="customUserDetailsService">
-			<password-encoder ref="customNoOpPasswordEncoder" />
-			<!-- <jdbc-user-service data-source-ref="dataSource" users-by-username-query="select 
-				ename, empno, 1 from emp where ename = ?" authorities-by-username-query="select 
-				ename,case when job='MANAGER' then 'ROLE_ADMIN' else 'ROLE_USER' end authority 
-				from emp where ename=?" /> -->
+			user-service-ref="customUserDetailsService">		
+			<password-encoder ref="customNoOpPasswordEncoder" />			
 		</authentication-provider>
 	</authentication-manager>
 
