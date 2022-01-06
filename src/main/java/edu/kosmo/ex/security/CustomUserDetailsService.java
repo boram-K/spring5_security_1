@@ -8,7 +8,9 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import edu.kosmo.ex.mapper.EmpMapper;
-import edu.kosmo.ex.vo.EmpVo;
+import edu.kosmo.ex.vo.CustomUser;
+import edu.kosmo.ex.vo.EmpVO;
+
 import lombok.Setter;
 import lombok.extern.log4j.Log4j;
 
@@ -22,7 +24,7 @@ public class CustomUserDetailsService implements UserDetailsService {
 	public UserDetails loadUserByUsername(String ename) throws UsernameNotFoundException {
 		log.warn("Load User By Employee number: " + ename);
 		
-		EmpVo vo = empMapper.readUser(ename);
+		EmpVO vo = empMapper.readUser(ename);
 		
 		log.warn("queried by EmpVo mapper : " + vo);
 		
