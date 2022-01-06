@@ -12,9 +12,12 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import lombok.extern.log4j.Log4j;
+
 /**
  * Handles requests for the application home page.
  */
+@Log4j
 @Controller
 public class HomeController {
 	
@@ -35,6 +38,18 @@ public class HomeController {
 		model.addAttribute("serverTime", formattedDate );
 		
 		return "home";
+	}
+	@GetMapping("/user/userHome")
+	public String userHome() {
+		log.info("welcome userHome");
+		
+		return "/user/userHome";
+	}
+	@GetMapping("/admin/adminHome")
+	public String adminHome() {
+		log.info("welcome adminHome");
+		
+		return "/admin/adminHome";
 	}
 	@GetMapping("/login/loginForm")
 	public String loginForm() {
